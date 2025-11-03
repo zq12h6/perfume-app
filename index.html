@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Halwa — Curated Perfumes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Halwa home">
+        <span class="brand-mark" aria-hidden="true">H</span>
+        <span class="brand-text">Halwa</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="gallery.html">Gallery</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="nav-link" href="faq.html">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="cartBtn" class="cart-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4h-2l-1 2h2l1-2zm0 0"/></svg>
+          <span id="cartCount" class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="miniCart" class="mini-cart" aria-hidden="true">
+      <div class="mini-cart-inner">
+        <div class="mini-cart-header">
+          <strong>Your Basket</strong>
+        </div>
+        <div id="miniCartItems" class="mini-cart-items">No items</div>
+        <div class="mini-cart-footer">
+          <div id="miniCartSubtotal" class="mini-cart-subtotal"></div>
+          <div class="mini-cart-actions">
+            <a href="cart.html" class="btn btn-outline">View Cart</a>
+            <a href="checkout.html" class="btn btn-primary">Checkout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Halwa — Signature Scents, Thoughtfully Curated</h1>
+          <p class="lead">Small‑batch perfumes crafted with care. Replace placeholders with your own images in /assets or your preferred folder.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#featured">Shop Featured</a>
+            <a class="btn btn-ghost" href="gallery.html">View Gallery</a>
+          </div>
+          <ul class="feature-list">
+            <li>Ethical sourcing</li>
+            <li>Free samples for first orders</li>
+            <li>Insured shipping</li>
+          </ul>
+        </div>
+
+        <div class="hero-media">
+          <!-- placeholder image: replace with your image and remove data-needs-image -->
+          <img class="placeholder" src="images/close-view-sexual-bride-with-makeup-hairstyle-wearing-white-silk-gown-veil-spraying-perfume-her-neck-enjoying-smell-against-gray-background-bridal-morning_8353-12277.avif" alt="Hero placeholder — add your image" data-needs-image="1" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section id="featured" class="featured container">
+      <header class="section-head">
+        <h2>Featured Perfumes</h2>
+        <p class="section-sub">Handpicked seasonal favorites — demo placeholders below.</p>
+      </header>
+
+      <div class="products-grid">
+        <article class="product-card">
+          <figure class="product-media">
+            <img src="images/OIP.webp" alt="Amber Noir placeholder" data-needs-image="1">
+          </figure>
+          <div class="product-info">
+            <h3 class="product-title">Amber Noir</h3>
+            <div class="product-price">$89</div>
+            <p class="product-desc">Warm amber, sandalwood and soft musk. Update the product image by replacing the src attribute.</p>
+            <div class="product-actions">
+              <button class="btn btn-outline" onclick="location.href='contact.html?subject=Amber%20Noir%20inquiry'">Inquire</button>
+              <button class="btn btn-primary" onclick="addToCart('Amber Noir', {price:89})">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <figure class="product-media"><img src="images/perfume-pink-bottle-3d-rendering-wallpaper-background_917213-52966.avif" alt="Citrus Bloom placeholder" data-needs-image="1"></figure>
+          <div class="product-info">
+            <h3 class="product-title">Citrus Bloom</h3>
+            <div class="product-price">$72</div>
+            <p class="product-desc">Bright bergamot and neroli. Replace the placeholder with your asset.</p>
+            <div class="product-actions">
+              <button class="btn btn-outline" onclick="location.href='contact.html?subject=Citrus%20Bloom%20inquiry'">Inquire</button>
+              <button class="btn btn-primary" onclick="addToCart('Citrus Bloom', {price:72})">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <figure class="product-media"><img src="images/OIP (1).webp" alt="Rose Atelier placeholder" data-needs-image="1"></figure>
+          <div class="product-info">
+            <h3 class="product-title">Rose Atelier</h3>
+            <div class="product-price">$95</div>
+            <p class="product-desc">Modern rose — powdery and restrained. Swap the image when ready.</p>
+            <div class="product-actions">
+              <button class="btn btn-outline" onclick="location.href='contact.html?subject=Rose%20Atelier%20inquiry'">Inquire</button>
+              <button class="btn btn-primary" onclick="addToCart('Rose Atelier', {price:95})">Add to cart</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="about container">
+      <div class="about-card">
+        <h3>Our Craft</h3>
+        <p>We focus on balanced compositions, premium ingredients and mindful batching. Use the Gallery to showcase your brand's imagery.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="brand-legal">&copy; 2025 Halwa</div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" alt="">
+    <button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Close image">×</button>
+  </div>
+
+  <div id="toast" class="toast" aria-live="polite" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

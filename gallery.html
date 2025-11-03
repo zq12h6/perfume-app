@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gallery — Halwa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">H</span><span class="brand-text">Halwa</span></a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link active" href="gallery.html">Gallery</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="nav-link" href="faq.html">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <button id="cartBtn" class="cart-btn" aria-label="Open cart"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4h-2l-1 2h2l1-2z"/></svg><span id="cartCount" class="cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="container gallery-section">
+      <header class="section-head">
+        <h1>Gallery</h1>
+        <p class="section-sub">Replace placeholders with your high-resolution product images.</p>
+      </header>
+
+      <div class="gallery-grid">
+        <!-- Replace src with your image path and remove data-needs-image attribute -->
+        <figure class="gallery-card">
+          <img src="images/360_F_417623503_1Ajo8g9Wqdczt0PD8mAymkO1Y3RPnEwf.jpg" alt="Gallery placeholder" data-needs-image="1" loading="lazy" onclick="openLightbox(this)">
+          <figcaption>Refreshing</figcaption>
+        </figure>
+
+        <figure class="gallery-card">
+          <img src="images/A-perfume-for-a-real-man-Advertisement-professional-photoshoot-1300x729.webp" alt="Gallery placeholder" data-needs-image="1" loading="lazy" onclick="openLightbox(this)">
+          <figcaption>Placeholder — add image</figcaption>
+        </figure>
+
+        <figure class="gallery-card">
+          <img src="images/Johnny-Depp-Sauvage-Dior-Fragrance-Campaign-preen.jpg" alt="Gallery placeholder" data-needs-image="1" loading="lazy" onclick="openLightbox(this)">
+          <figcaption>Placeholder — add image</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>&copy; 2025 Halwa</div>
+      <nav class="footer-links"><a href="index.html">Home</a> <a href="contact.html">Contact</a></nav>
+    </div>
+  </footer>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()"><img id="lightbox-img" alt=""><button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Close image">×</button></div>
+  <div id="toast" class="toast" aria-live="polite" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>

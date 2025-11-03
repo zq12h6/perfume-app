@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout — Halwa (Demo)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .checkout-card{background:var(--surface);padding:20px;border-radius:12px;border:1px solid rgba(11,17,32,0.04);box-shadow:var(--shadow-1);max-width:720px;margin:0 auto}
+    .field{margin-bottom:12px}
+    .field label{display:block;font-weight:700;margin-bottom:6px}
+    .field input{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(11,17,32,0.06)}
+    .order-summary{margin-top:14px;padding:12px;background:var(--glass);border-radius:8px}
+    .notice{margin-top:12px;padding:12px;border-radius:8px;background:#fff4e5;border:1px solid rgba(0,0,0,0.03)}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">H</span><span class="brand-text">Halwa</span></a>
+      <nav class="primary-nav" aria-label="Primary navigation"><a class="nav-link" href="index.html">Home</a><a class="nav-link" href="gallery.html">Gallery</a><a class="nav-link" href="contact.html">Contact</a><a class="nav-link" href="faq.html">FAQ</a><a class="nav-link" href="cart.html">Cart</a></nav>
+      <div class="header-actions"><button id="cartBtn" class="cart-btn" aria-label="Open cart"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4h-2l-1 2h2l1-2z"/></svg><span id="cartCount" class="cart-count">0</span></button></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="container" style="padding:40px 0">
+      <div class="checkout-card" id="checkoutRoot">
+       
+
+        <div id="checkoutFormWrap">
+          <form id="checkoutForm" autocomplete="off">
+            <div class="field"><label for="cardName">Name on card</label><input id="cardName" name="cardName" placeholder="Full name" required></div>
+            <div class="field"><label for="cardNumber">Card number</label><input id="cardNumber" name="cardNumber" inputmode="numeric" placeholder="4242 4242 4242 4242" required></div>
+            <div style="display:flex;gap:12px"><div class="field" style="flex:1"><label for="expiry">Expiry (MM/YY)</label><input id="expiry" name="expiry" placeholder="12/34" required></div><div class="field" style="width:120px"><label for="cvc">CVC</label><input id="cvc" name="cvc" placeholder="123" inputmode="numeric" required></div></div>
+
+            <div class="order-summary" id="orderSummary"></div>
+
+            <div style="display:flex;gap:10px;margin-top:14px;align-items:center"><button type="submit" class="btn btn-primary">Pay (Demo)</button><a class="btn btn-ghost" href="cart.html">Back to cart</a></div>
+          </form>
+
+          <div class="notice" role="note" aria-live="polite">
+            card for testing: 4242 4242 4242 4242 — expiry 12/34 — CVC 123. Do not use real card details here.
+          </div>
+        </div>
+
+        <div id="orderResult" style="display:none;margin-top:18px"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><div>&copy; 2025 Halwa</div><div><a href="index.html">Home</a> · <a href="gallery.html">Gallery</a></div></div></footer>
+
+  <div id="toast" class="toast" aria-live="polite" role="status"></div>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof populateCheckoutSummary === 'function') populateCheckoutSummary(document.getElementById('orderSummary'));
+      const form = document.getElementById('checkoutForm');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('cardName').value.trim();
+        const number = document.getElementById('cardNumber').value.replace(/\s+/g,'');
+        const expiry = document.getElementById('expiry').value.trim();
+        const cvc = document.getElementById('cvc').value.trim();
+        if (!name || !number || !expiry || !cvc) { showToast('Please complete all payment fields.'); return; }
+        const isTestCard = (/^4242424242424242$/.test(number));
+        const demoToken = 'tok_demo_' + Math.random().toString(36).slice(2,10);
+        const resultEl = document.getElementById('orderResult'); resultEl.style.display = 'block';
+        resultEl.innerHTML = `<div class="success"><h3>Payment ${isTestCard ? 'accepted' : 'processed (demo)'}</h3><p>Thank you, ${escapeHtml(name)}. Your demo order was recorded.</p><p><strong>Demo payment token:</strong> ${demoToken}</p><p><strong>Card:</strong> **** **** **** ${escapeHtml(number.slice(-4))}</p><p>We cleared the demo cart stored in your browser.</p><p style="margin-top:12px"><a class="btn btn-outline" href="index.html">Continue shopping</a></p></div>`;
+        try { localStorage.removeItem('halwa_cart_v1'); } catch(e){}
+        document.getElementById('checkoutFormWrap').style.display = 'none';
+        showToast('Demo payment successful. Cart cleared.');
+        try { updateCartIndicator(); } catch(e){}
+      });
+    });
+  </script>
+</body>
+</html>

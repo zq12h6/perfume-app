@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Halwa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">H</span><span class="brand-text">Halwa</span></a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="gallery.html">Gallery</a>
+        <a class="nav-link active" href="contact.html">Contact</a>
+        <a class="nav-link" href="faq.html">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <button id="cartBtn" class="cart-btn" aria-label="Open cart"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4h-2l-1 2h2l1-2z"/></svg><span id="cartCount" class="cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="container contact-page">
+      <header class="section-head"><h1>Get in touch</h1><p class="section-sub">Questions about scents, orders, or partnerships — we're here to help.</p></header>
+
+      <div class="contact-grid">
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input id="name" name="name" placeholder="Your name" required>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required>
+          </div>
+
+          <div class="form-row">
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" placeholder="E.g., Question about Amber Noir">
+          </div>
+
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help..." required></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Send message</button>
+            <a class="btn btn-ghost" href="mailto:hello@halwa.example">Email us</a>
+          </div>
+
+          <p class="hint">This is a demo form — submissions are client-side only.</p>
+        </form>
+
+        <aside class="contact-info">
+          <div class="info-card">
+            <h4>Customer Support</h4>
+            <p>hello@halwa.example</p>
+            <p>Mon–Fri, 9am–5pm</p>
+          </div>
+
+          <div class="info-card">
+            <h4>Wholesale</h4>
+            <p>wholesale@halwa.example</p>
+          </div>
+
+          <div class="map-placeholder">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Contact placeholder" data-needs-image="1" loading="lazy">
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner"><div>&copy; 2025 Halwa</div><div><a href="index.html">Home</a> · <a href="gallery.html">Gallery</a></div></div>
+  </footer>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()"><img id="lightbox-img" alt=""><button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Close image">×</button></div>
+  <div id="toast" class="toast" aria-live="polite" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>

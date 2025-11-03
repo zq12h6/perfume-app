@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cart — Halwa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* a few cart-specific tweaks kept local */
+    .cart-table{width:100%;border-collapse:collapse;margin-top:12px}
+    .cart-table th,.cart-table td{padding:12px;border-bottom:1px solid rgba(11,17,32,0.04);text-align:left}
+    .cart-item-media{width:96px;height:72px;object-fit:cover;border-radius:8px}
+    .qty-input{width:64px;padding:6px;border-radius:8px;border:1px solid rgba(11,17,32,0.06)}
+    .empty-msg{padding:28px;background:var(--surface);border-radius:12px;border:1px solid rgba(11,17,32,0.04);text-align:center}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">H</span><span class="brand-text">Halwa</span></a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="gallery.html">Gallery</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="nav-link" href="faq.html">FAQ</a>
+        <a class="nav-link active" href="cart.html">Cart</a>
+      </nav>
+      <div class="header-actions"><button id="cartBtn" class="cart-btn" aria-label="Open cart"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4h-2l-1 2h2l1-2z"/></svg><span id="cartCount" class="cart-count">0</span></button></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="container">
+      <header class="section-head"><h1>Your Basket</h1><p class="section-sub">Items you've added are saved in your browser (demo local cart).</p></header>
+      <div id="cartRoot"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><div>&copy; 2025 Halwa</div><div><a href="index.html">Home</a> · <a href="gallery.html">Gallery</a></div></div></footer>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()"><img id="lightbox-img" alt=""><button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Close image">×</button></div>
+  <div id="toast" class="toast" aria-live="polite" role="status"></div>
+
+  <script src="script.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', () => { if (typeof renderCartPage === 'function') renderCartPage(document.getElementById('cartRoot')); });</script>
+</body>
+</html>

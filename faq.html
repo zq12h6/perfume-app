@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FAQ — Halwa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">H</span><span class="brand-text">Halwa</span></a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="gallery.html">Gallery</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="nav-link active" href="faq.html">FAQ</a>
+      </nav>
+      <div class="header-actions"><button id="cartBtn" class="cart-btn" aria-label="Open cart"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4h-2l-1 2h2l1-2z"/></svg><span id="cartCount" class="cart-count">0</span></button></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="container faq-section">
+      <header class="section-head"><h1>Frequently Asked Questions</h1><p class="section-sub">Short answers to common questions about products and policies.</p></header>
+
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>How long does a perfume last on the skin?</summary>
+          <div class="faq-body"><p>Longevity depends on concentration and skin chemistry. Our Eau de Parfums typically last 6–8 hours.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you offer samples?</summary>
+          <div class="faq-body"><p>Yes — sample vials are available for most fragrances. Contact wholesale@halwa.example for sample packs and pricing.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What is your return policy?</summary>
+          <div class="faq-body"><p>We accept returns within 14 days for unopened bottles. Contact hello@halwa.example to request authorization.</p></div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can I order wholesale?</summary>
+          <div class="faq-body"><p>Yes — for wholesale information please email wholesale@halwa.example.</p></div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><div>&copy; 2025 Halwa</div><div><a href="contact.html">Contact</a></div></div></footer>
+  <div id="toast" class="toast" aria-live="polite" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
